@@ -2,7 +2,6 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 1rem;
-  background-image: url('../assets/bg.jpg');
   background-size: cover;
   display: flex;
   align-items: center;
@@ -13,7 +12,6 @@ body {
 
 @media only screen and (max-width: 1200px) {
   body {
-    background-image: url('../assets/bg_small.jpg');
   }
 }
 
@@ -37,10 +35,14 @@ body {
   height: auto;
 }
 
+.reel > .icons > img:nth-child(odd) {
+  filter: blur(2px);
+}
+
 #controls {
   background-color: rgba(255, 255, 255, 0.9);
   height: 50px;
-  display: flex;
+  display: none !important;
   justify-content: space-between;
   align-items: center;
   padding: 5px 30px;

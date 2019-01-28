@@ -1,24 +1,24 @@
-import Reel from './Reel.js';
 import Symbol from './Symbol.js';
+import Reel from './Reel.js';
 
 export default class Slot {
   constructor(domElement, config = {}) {
     Symbol.preload();
 
     this.currentSymbols = [
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
     ];
 
     this.nextSymbols = [
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
-      ['death_star', 'death_star', 'death_star'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
     ]
 
     this.container = domElement;
@@ -37,6 +37,13 @@ export default class Slot {
 
   spin() {
     this.onSpinStart();
+
+    // Get random symbols for all reels
+    // Extract middle symbol and concat
+    // Test against min/max number
+    // Verify that number does not exists in array
+    // If exists, do it again
+    // Else show and add to array to avoid next pick to match
 
     this.currentSymbols = this.nextSymbols;
     this.nextSymbols = [
@@ -63,7 +70,5 @@ export default class Slot {
     this.spinButton.disabled = false;
 
     console.log('SPIN END');
-
-    if (this.autoPlayCheckbox.checked) return window.setTimeout(() => this.spin(), 200);
   }
 }
