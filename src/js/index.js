@@ -6,10 +6,13 @@ const config = {
 
 const slot = new Slot(document.getElementById('slot'), config);
 
+// Array of drawed numbers
+var drawedNumbers = [];
+
 // Hit enter to spin the wheels
 document.addEventListener("keyup", function(event) {
   event.preventDefault();
   if (event.keyCode === 13) {
-    slot.spin();
+    var result = slot.spin(drawedNumbers);
   }
 });
