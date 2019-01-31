@@ -34,17 +34,15 @@ export default class Slot {
   spin(alreadyDrawed) {
     this.onSpinStart();
 
-    console.log("Already drawed number: " + alreadyDrawed);
-
-    var minAllowedNumber = 1;
-    var maxAllowedNumber = 1000;
-    var drawed = [];
+    const minAllowedNumber = 1;
+    const maxAllowedNumber = 1000;
+    let drawed = [];
 
     // Populate unique random numbers
-    var notAllowedNumber = true;
+    let notAllowedNumber = true;
     while(notAllowedNumber) {
       drawed[1] = [Symbol.random(), Symbol.random(), Symbol.random(), Symbol.random()];
-      var drawedNumber = "";
+      let drawedNumber = "";
       drawed[1].forEach(function(value) {
         drawedNumber += String(value)
       });
@@ -81,13 +79,13 @@ export default class Slot {
 
   onSpinEnd(alreadyDrawed) {
     this.spinButton.disabled = false;
-    return alreadyDrawed;
     console.log('SPIN END');
+    return alreadyDrawed;
   }
 
   getAllNumbers(drawedArray, drawedNumber) {
-    var previousNumber = (drawedNumber == 0 ? "1000" : parseInt(drawedNumber)-1);
-    var nextNumber = (drawedNumber == 1000 ? "0001" : parseInt(drawedNumber)+1);
+    const previousNumber = (drawedNumber == 0 ? "1000" : parseInt(drawedNumber)-1);
+    const nextNumber = (drawedNumber == 1000 ? "0001" : parseInt(drawedNumber)+1);
     drawedArray[0] = String(previousNumber).padStart(4, '0');
     drawedArray[2] = String(nextNumber).padStart(4, '0');
     return drawedArray;

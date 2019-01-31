@@ -7,12 +7,20 @@ const config = {
 const slot = new Slot(document.getElementById('slot'), config);
 
 // Array of drawed numbers
-var drawedNumbers = [];
+let drawedNumbers = [];
+
+// Avoid hitting multiple enter-keys
+let hittedEnter = false;
 
 // Hit enter to spin the wheels
 document.addEventListener("keyup", function(event) {
   event.preventDefault();
-  if (event.keyCode === 13) {
-    var result = slot.spin(drawedNumbers);
+  if (event.keyCode === 13 && !hittedEnter) {
+    const result = slot.spin(drawedNumbers);
+    hittedEnter = true;
+    result.then(function(value) {
+      console.log("Drawed numbers: " + value);
+      hittedEnter = false;
+    });
   }
 });
