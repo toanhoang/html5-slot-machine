@@ -1,12 +1,17 @@
 body {
+  zoom: 1;
   width: 100vw;
   height: 100vh;
   padding: 1rem;
-  background-size: cover;
+  margin: 0;
+  background-image: url('../assets/lantern.svg'), url('../assets/lantern.svg'), url('../assets/logo.svg'), url('../assets/flower.svg'), url('../assets/pig.svg'), url('../assets/bg.svg');
+  background-position: top left, top right, top center, right bottom, left bottom, center;
+  background-repeat: no-repeat;
+  background-size: 30px, 30px, 250px, 100px, 100px, cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 12px;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
